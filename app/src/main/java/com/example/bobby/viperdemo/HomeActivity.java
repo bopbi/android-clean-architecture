@@ -13,7 +13,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         HomeView homeView = (HomeView) findViewById(R.id.home_view);
         homePresenter = new HomePresenter(homeView);
-        HomeInteractor homeInteractor = new HomeInteractor();
+        HomeInteractor homeInteractor = HomeInteractor.getInstance();
         homePresenter.initialize(homeInteractor);
 
         homePresenter.onViewCreated();

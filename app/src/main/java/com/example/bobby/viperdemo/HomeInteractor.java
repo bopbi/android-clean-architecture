@@ -8,6 +8,15 @@ import java.util.List;
  */
 public class HomeInteractor {
 
+    private static HomeInteractor instance;
+
+    public static HomeInteractor getInstance() {
+        if (instance == null) {
+            instance = new HomeInteractor();
+        }
+        return instance;
+    }
+
     public ArrayList<Timeline> getTimeLine() {
         ArrayList<Timeline> list = new ArrayList<>(10);
         list.add(new Timeline("Bobby", "Ini String asal"));

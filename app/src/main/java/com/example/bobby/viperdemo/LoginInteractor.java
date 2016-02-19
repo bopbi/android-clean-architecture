@@ -7,6 +7,18 @@ import android.widget.EditText;
  */
 public class LoginInteractor {
 
+    private static LoginInteractor instance;
+
+    public static LoginInteractor getInstance() {
+        if (instance == null) {
+            instance = new LoginInteractor();
+        }
+        return instance;
+    }
+
+    protected LoginInteractor() {
+
+    }
     public String handleLogin(String username, String password) {
         if ((username.length() > 0) && (password.length() > 0)) {
             return "ok";

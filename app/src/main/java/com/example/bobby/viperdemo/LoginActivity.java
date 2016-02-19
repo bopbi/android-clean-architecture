@@ -9,12 +9,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         LoginView loginView = (LoginView) findViewById(R.id.view_login);
 
         loginPresenter = new LoginPresenter(loginView);
-        LoginInteractor loginInteractor = new LoginInteractor();
+        LoginInteractor loginInteractor = LoginInteractor.getInstance();
         loginPresenter.initialize(loginInteractor);
 
         loginPresenter.onViewCreated();

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by bobby on 2/18/16.
  */
-public class HomeAdapter extends ArrayAdapter<Timeline> {
+public class TimelineAdapter extends ArrayAdapter<Timeline> {
 
     private ArrayList<Timeline> list;
 
@@ -21,7 +21,7 @@ public class HomeAdapter extends ArrayAdapter<Timeline> {
         TextView content;
     }
 
-    public HomeAdapter(Context context, ArrayList<Timeline> timelines) {
+    public TimelineAdapter(Context context, ArrayList<Timeline> timelines) {
         super(context, android.R.layout.simple_list_item_2, timelines);
     }
 

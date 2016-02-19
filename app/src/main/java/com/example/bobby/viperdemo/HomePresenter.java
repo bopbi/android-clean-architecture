@@ -7,6 +7,7 @@ public class HomePresenter {
 
     private HomeInteractor homeInteractor;
     private HomeView homeView;
+    private TimelineAdapter timelineAdapter;
 
     public HomePresenter(HomeView homeView) {
         this.homeView = homeView;
@@ -14,6 +15,8 @@ public class HomePresenter {
 
     public void initialize(HomeInteractor homeInteractor) {
         this.homeInteractor = homeInteractor;
+        timelineAdapter = new TimelineAdapter(homeView.getContext(), homeInteractor.getTimeLine());
+        homeView.getListView().setAdapter(timelineAdapter);
     }
 
     public void onViewCreated() {
