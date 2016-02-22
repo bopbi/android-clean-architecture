@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 public class HomeView extends RelativeLayout {
 
     private ListView listView;
+    private HomePresenter homePresenter;
 
     public HomeView(Context context) {
         super(context);
@@ -28,10 +29,16 @@ public class HomeView extends RelativeLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         listView = (ListView) findViewById(R.id.list_timeline);
+        homePresenter = new HomePresenter(this);
 
     }
 
     public ListView getListView() {
         return listView;
+    }
+
+
+    public HomePresenter getHomePresenter() {
+        return homePresenter;
     }
 }

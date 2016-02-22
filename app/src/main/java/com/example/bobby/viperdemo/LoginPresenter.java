@@ -18,9 +18,9 @@ public class LoginPresenter {
 
     public LoginPresenter(LoginView loginView) {
         this.loginView = loginView;
-    }
 
-    public void initialize (final LoginInteractor loginInteractor) {
+        final LoginInteractor loginInteractor = LoginInteractor.getInstance();
+
         // bind in here
         this.usernameText = loginView.getUsernameText();
         this.passwordText = loginView.getPasswordText();
@@ -28,8 +28,9 @@ public class LoginPresenter {
         this.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (loginInteractor.handleLogin(usernameText.getText().toString(), passwordText.getText().toString()) != null) {
-                    new Wireframe(loginView.getContext()).goToHome();
+                    new Wireframe(LoginPresenter.this.loginView.getContext()).goToHome();
                 } else {
                     showError();
                 }

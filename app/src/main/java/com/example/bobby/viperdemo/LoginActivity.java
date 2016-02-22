@@ -5,30 +5,25 @@ import android.os.Bundle;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private LoginPresenter loginPresenter;
+    private LoginView loginView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        LoginView loginView = (LoginView) findViewById(R.id.view_login);
-
-        loginPresenter = new LoginPresenter(loginView);
-        LoginInteractor loginInteractor = LoginInteractor.getInstance();
-        loginPresenter.initialize(loginInteractor);
-
-        loginPresenter.onViewCreated();
+        loginView = (LoginView) findViewById(R.id.view_login);
+        loginView.getLoginPresenter().onViewCreated();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        loginPresenter.onViewResumed();
+        loginView.getLoginPresenter().onViewResumed();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        loginPresenter.onViewPaused();
+        loginView.getLoginPresenter().onViewPaused();
     }
 }

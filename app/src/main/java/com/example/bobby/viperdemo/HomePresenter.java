@@ -11,10 +11,7 @@ public class HomePresenter {
 
     public HomePresenter(HomeView homeView) {
         this.homeView = homeView;
-    }
-
-    public void initialize(HomeInteractor homeInteractor) {
-        this.homeInteractor = homeInteractor;
+        homeInteractor = HomeInteractor.getInstance();
         timelineAdapter = new TimelineAdapter(homeView.getContext(), homeInteractor.getTimeLine());
         homeView.getListView().setAdapter(timelineAdapter);
     }

@@ -5,29 +5,25 @@ import android.os.Bundle;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private HomePresenter homePresenter;
+    private HomeView homeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        HomeView homeView = (HomeView) findViewById(R.id.home_view);
-        homePresenter = new HomePresenter(homeView);
-        HomeInteractor homeInteractor = HomeInteractor.getInstance();
-        homePresenter.initialize(homeInteractor);
-
-        homePresenter.onViewCreated();
+        homeView = (HomeView) findViewById(R.id.home_view);
+        homeView.getHomePresenter().onViewCreated();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        homePresenter.onViewResumed();
+        homeView.getHomePresenter().onViewResumed();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        homePresenter.onViewPaused();
+        homeView.getHomePresenter().onViewPaused();
     }
 }
